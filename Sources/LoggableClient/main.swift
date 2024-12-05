@@ -1,8 +1,20 @@
 import Loggable
+import OSLog
 
 let a = 17
 let b = 25
 
-let (result, code) = #stringify(a + b)
+let logger = OSLog(subsystem: "com.example", category: "☆")
+    
+    #logDebug("\(public: a) + b = \( a+b )")
 
-print("The value \(result) was produced by the code \"\(code)\"")
+class Log {
+    func log() {
+        #logDebug("a + b = ?")
+    }
+}
+
+extension Log: Loggable {
+    var logCategory: String { return "★"}
+}
+Log().log()
