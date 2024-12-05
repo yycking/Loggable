@@ -107,7 +107,7 @@ public struct NoticeMacro: ExpressionMacro {
         of node: some FreestandingMacroExpansionSyntax,
         in context: some MacroExpansionContext
     ) -> ExprSyntax {
-        convert(of: node, in: context, type: "notice")
+        convert(of: node, in: context, type: "default")
     }
 }
 
