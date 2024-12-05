@@ -220,9 +220,7 @@ func convert(
     let arg = values.map{"""
         , "\\(\($0))"
         """}.joined()
-    return """
-        os_log(.\(raw: type), log: logger, "\(raw: message)"\(raw: arg))
-        """
+    return "os_log(.\(raw: type), log: logger, \"\"\"\r\n\(raw: message)\r\n\"\"\"\r\n\(raw: arg))"
 }
 
 

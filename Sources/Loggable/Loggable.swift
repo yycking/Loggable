@@ -153,21 +153,6 @@ public macro logError(_ value: LoggableMessage) -> Void =
 public macro logFault(_ value: LoggableMessage) -> Void =
     #externalMacro(module: "LoggableMacros", type: "FaultMacro")
 
-public protocol Loggable {
-    var logCategory: String { get }
-
-    var logger: OSLog {get}
-}
-
-extension Loggable {
-    public var logger: OSLog {
-        OSLog(
-            subsystem: Bundle.main.bundleIdentifier ?? "app.log",
-            category: logCategory
-        )
-    }
-}
-
 public struct LoggableMessage {
 }
 

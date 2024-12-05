@@ -5,16 +5,12 @@ let a = 17
 let b = 25
 
 let logger = OSLog(subsystem: "com.example", category: "☆")
-    
-    #logDebug("\(public: a) + b = \( a+b )")
+#logDebug("\(public: a) + b = \( a+b )")
 
 class Log {
     func log() {
         #logDebug("a + b = ?")
     }
-}
-
-extension Log: Loggable {
-    var logCategory: String { return "★"}
+    let logger = OSLog(subsystem: "com.example", category: "★")
 }
 Log().log()
